@@ -1,0 +1,127 @@
+
+
+.blog-content
+{
+    height: 350px;
+    /* background-color: rgb(203, 220, 178); */
+    display: flex;
+    /* padding: 10px; */
+    padding-bottom: 50px;
+    /* margin-top: 25px; */
+    position: relative;
+    
+}
+
+.blog-content::after{
+    content:"";
+    background-image: url('../images/soil.png');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    width: 100%;
+    height: 100%; 
+    /* opacity: 0.85; */
+    z-index: -1;
+}
+
+.heading
+{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0px;   
+}
+
+/* .main-blog-content {
+    position: relative;
+}
+
+.main-blog-content::before {
+    content: "";
+    background-image: url('../images/soil.png');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.15;
+    z-index: -1; 
+    top: 0;
+    left: 0;
+} */
+
+
+.blog-post-content
+{
+    padding: 25px 0;
+    font-size: 20px;
+    /* font-weight: 500; */
+   
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: space-between; /* Distribute space evenly */
+}
+
+.more-post {
+    flex: 1 1 calc(25% - 10px); /* Adjust to 4 articles per row with less spacing */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    margin: 5px; /* Reduced margin for less space between articles */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.blogpost-meta
+{
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+
+/* author div */
+
+.author-info 
+{
+    margin-bottom: 25px;
+}
+
+.author-info div
+{
+    
+    font-family: serif;
+}
+
+/* socialdiv */
+
+.social {
+    display: flex;
+    gap: 12px; /* Space between icons */
+    margin-top: 10px;
+}
+
+.social i {
+    font-size: 28px; /* Increase icon size */
+    transition: transform 0.3s ease, font-size 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.social i:hover {
+    transform: scale(1.4); /* Pop-up effect */
+    font-size: 30px; /* Increase size slightly on hover */
+}
+
+.social a {
+    color: inherit; /* Ensure the color remains consistent */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.social a:hover {
+    color: #1DA1F2; /* Change color on hover (example: Twitter blue) */
+}

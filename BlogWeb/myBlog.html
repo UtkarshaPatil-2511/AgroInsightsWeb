@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/utils.css">
+  <link rel="stylesheet" href="css/myBlog.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <title>My Blog - iBlog</title>
+</head>
+<body>
+  <nav class="navigation max-width-1 m-auto">
+    <div class="nav-left">
+      <span>iBlog</span>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/myBlog.html">My Blog</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <form action="/search.html" method="get">
+        <input class="form-input" type="text" name="query" placeholder="Article Search">
+        <button class="btn">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <div class="blog-posts max-width-1 m-auto">
+    <h1>My Blog Posts</h1>
+    <div id="posts"></div>
+  </div>
+
+  <div class="footer">
+    Copyright &copy; iBlog.com
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const postsContainer = document.getElementById('posts');
+      let blogPosts = localStorage.getItem('blogPosts');
+      blogPosts = blogPosts ? JSON.parse(blogPosts) : [];
+
+      if (blogPosts.length === 0) {
+        postsContainer.innerHTML = '<p>No blog posts available.</p>';
+      } else {
+        blogPosts.forEach(post => {
+          const postElement = document.createElement('div');
+          postElement.classList.add('post');
+          postElement.innerHTML = `
+            <h2>${post.title}</h2>
+            <p><strong>Author:</strong> ${post.author}</p>
+            <p><strong>Date:</strong> ${post.date}</p>
+            <p>${post.content}</p>
+          `;
+          postsContainer.appendChild(postElement);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
